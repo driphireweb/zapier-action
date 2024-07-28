@@ -36,13 +36,13 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '20'
 
       - name: Install Dependencies
-        run: yarn
+        run: yarn install
 
       - name: Build
-        run: yarn zapier build
+        run: yarn zapier:build
         env:
           NODE_ENV: production
 
@@ -50,7 +50,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: build
-          path: build
+          path: lib
 
   deploy:
     name: Deploy
@@ -60,17 +60,22 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
       - name: Download Artifact
         uses: actions/download-artifact@v3
         with:
           name: build
-          path: build
+          path: lib
 
-      - name: Install Zapier Platform Core
-        run: npm install zapier-platform-core
+      - name: Install Dependencies
+        run: yarn install
 
       - name: Deploy to Zapier
-        uses: driphire/zapier-action@master
+        uses: docker://driphire/zapier-action:latest
         with:
           args: upload
         env:
