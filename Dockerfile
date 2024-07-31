@@ -1,6 +1,6 @@
 FROM node:20-buster
 
-LABEL version="0.0.2"
+LABEL version="0.0.3"
 LABEL repository="https://github.com/driphireweb/zapier-action"
 LABEL homepage="https://github.com/driphireweb/zapier-action"
 LABEL maintainer="Fullbound <jeff@fullbound.ai>"

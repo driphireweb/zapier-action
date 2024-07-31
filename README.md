@@ -1,4 +1,4 @@
-![Build And Deploy](https://github.com/driphireweb/zapier-action/workflows/Build%20and%20Deploy/badge.svg)
+![Build And Deploy](https://github.com/driphireweb/zapier-action/workflows/Build%20and%20push%20Docker%20images/badge.svg)
 # GitHub Actions for Zapier
 
 This Action for [zapier-platform-cli](https://platform.zapier.com/) enables arbitrary actions with the `zapier` command-line client.
